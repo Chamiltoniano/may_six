@@ -3,10 +3,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "¡I am in render now?! do I?"
+    return '''
+    <h1>¡Hola desde Render!</h1>
+    <img src="/static/spchamy1.png" alt="Imagen de prueba" width="400">
+    '''
 
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
-
+import os
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
