@@ -10,7 +10,7 @@ def home():
     </head>
     <body>
         <h1>¡Hola desde Render!</h1>
-        <img src="/static/imagen.png" alt="Imagen centrada">
+        <img src="/static/spchamy1.png" alt="Imagen centrada">
     </body>
     </html>
     '''
