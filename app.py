@@ -6,11 +6,13 @@ def home():
     return '''
     <html>
     <head>
-        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="/static/estilo.css">
     </head>
     <body>
-        <h1>¡Hola desde Render!</h1>
-        <img src="/static/spchamy1.png" alt="Imagen centrada">
+        <div class="contenedor">
+            <h1>¡Hola desde Render!</h1>
+            <img src="/static/spchamy1.png" alt="Imagen centrada">
+        </div>
     </body>
     </html>
     '''
