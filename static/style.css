@@ -1,5 +1,5 @@
 body, html {
-    height: 20%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -13,8 +13,25 @@ body, html {
     text-align: center;
 }
 
+img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
 img {
     max-width: 80%;
     height: auto;
     border: 2px solid #333;
+}
+
+img {
+    opacity: 0;
+    animation: aparecer 1s ease forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
 }
