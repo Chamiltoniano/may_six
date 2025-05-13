@@ -6,7 +6,7 @@ def home():
     return '''
     <html>
     <head>
-        <link rel="stylesheet" href="/static/estilo.css">
+        <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
         <div class="contenedor">
