@@ -4,8 +4,15 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return '''
-    <h1>¡Hola desde Render!</h1>
-    <img src="/static/spchamy1.png" alt="Imagen de prueba" width="400">
+    <html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>¡Hola desde Render!</h1>
+        <img src="/static/imagen.png" alt="Imagen centrada">
+    </body>
+    </html>
     '''
 
 import os
