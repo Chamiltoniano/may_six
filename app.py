@@ -1,3 +1,6 @@
+from flask import Flask
+app = Flask(__name__)
+
 @app.route("/")
 def home():
     return '''
@@ -17,14 +20,12 @@ def home():
         <p id="hora" style="margin-top: 10px; font-weight: bold;"></p>
 
         <script>
-        // Cambia el fondo según la hora
         const hora = new Date().getHours();
         if (hora >= 18 || hora < 6) {
             document.body.style.backgroundColor = "#1c1c1c";
             document.body.style.color = "#fff";
         }
 
-        // Actualiza la hora actual cada segundo
         function actualizarHora() {
             const ahora = new Date();
             const texto = ahora.toLocaleTimeString();
@@ -33,12 +34,10 @@ def home():
         setInterval(actualizarHora, 1000);
         actualizarHora();
 
-        // Cambia el título al hacer clic
         document.getElementById("titulo").addEventListener("click", function() {
             this.textContent = "¡Gracias por hacer clic!";
         });
 
-        // Mensaje aleatorio
         const mensajes = [
             "¡Bienvenido a mi sitio!",
             "¿Sabías que esto está hecho con Flask?",
@@ -53,8 +52,6 @@ def home():
     </html>
     '''
 
-
-# 👇 Esto debe estar FUERA del bloque de la función `home()`
 import os
 port = int(os.environ.get("PORT", 5000))
 app.run(host="0.0.0.0", port=port)
