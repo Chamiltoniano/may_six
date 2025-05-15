@@ -1,13 +1,52 @@
-/* Reset */
+/* Reset and base styles */
 body, html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #1c1c1c;
-    color: white;
+    background-color: #ffffff;  /* Light mode background */
+    color: #000;               /* Light mode text */
 }
 
-/* Container centering */
+/* Dark mode styles (applied when body has class "dark-mode") */
+body.dark-mode {
+    background-color: #1c1c1c; /* Dark background */
+    color: #fff;              /* Light text */
+}
+
+/* Top navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;   /* Light mode nav background */
+    color: #000;
+    padding: 10px;
+}
+body.dark-mode nav {
+    background-color: #333;   /* Dark mode nav background */
+    color: #fff;
+}
+.nav-links a {
+    color: inherit;           /* Inherit nav text color (black or white) */
+    text-decoration: none;
+    margin-right: 15px;
+}
+.nav-links a:last-child {
+    margin-right: 0;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+#theme-toggle {
+    background: none;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* Main container centering and layout */
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -25,39 +64,62 @@ img {
     height: auto;
     border: 2px solid #333;
     animation: aparecer 1s ease forwards;
+    opacity: 0;               /* start transparent for fade-in */
 }
-
-/* Hover animation (for desktop) */
 img:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
 
-/* Fade in */
+/* Fade-in keyframes for image */
 @keyframes aparecer {
-    to {
-        opacity: 1;
-    }
+    to { opacity: 1; }
 }
 
-img {
-    opacity: 0;
-}
-
-/* Message and time styling */
+/* Message and time text styling */
 #mensaje, #hora {
     margin-top: 20px;
     font-size: 1.1em;
     font-weight: bold;
 }
 
-/* Make sure text is readable on small screens */
+/* Responsive: improve text sizing on very small screens */
 @media (max-width: 500px) {
     h1 {
         font-size: 1.5em;
     }
-
     #mensaje, #hora {
         font-size: 1em;
+    }
+}
+
+/* Responsive: landscape orientation layout */
+@media (orientation: landscape) {
+    .contenedor {
+        flex-direction: row;    /* side by side in landscape */
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedor h1 {
+        margin-right: 20px;    /* space between text and image */
+    }
+}
+
+/* Responsive: stack nav items on narrow screens */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-links a {
+        margin: 5px 0;
+    }
+    #theme-toggle {
+        margin-top: 10px;
     }
 }
