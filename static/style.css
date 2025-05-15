@@ -1,37 +1,63 @@
+/* Reset */
 body, html {
-    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    background-color: #1c1c1c;
+    color: white;
 }
 
+/* Container centering */
 .contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    padding: 20px;
+    min-height: 100vh;
     text-align: center;
+    box-sizing: border-box;
 }
 
+/* Image styling */
+img {
+    max-width: 90%;
+    height: auto;
+    border: 2px solid #333;
+    animation: aparecer 1s ease forwards;
+}
+
+/* Hover animation (for desktop) */
 img:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
 
-
-img {
-    max-width: 80%;
-    height: auto;
-    border: 2px solid #333;
+/* Fade in */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
 }
 
 img {
     opacity: 0;
-    animation: aparecer 1s ease forwards;
 }
 
-@keyframes aparecer {
-    to {
-        opacity: 1;
+/* Message and time styling */
+#mensaje, #hora {
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Make sure text is readable on small screens */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #mensaje, #hora {
+        font-size: 1em;
     }
 }
